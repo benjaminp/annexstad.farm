@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <title>The Annexstad Dairy Farm</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+  <script type="text/javascript" src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style type="text/css">
+    body {
+      width: 850px;
+    }
+    #map {
+      height: 500px;
+    }
+  </style>
+  <script type="text/javascript">
+    (function () {
+      function setupMap() {
+        window.removeEventListener("load", setupMap);
+        var map = L.map("map", {
+          scrollWheelZoom: false,
+        });
+        map.setView([44.398, -94.072], 15);
+        L.tileLayer("//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; <a href=\"http://openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+          maxZoom: 18,
+        }).addTo(map);
+        var marker = L.marker([44.397, -94.072]).addTo(map);
+        marker.bindPopup("<strong>Annexstad Dairy Farm</strong><br>38171 403rd Avenue<br>St. Peter, MN 56082").openPopup();
+      };
+      window.addEventListener("load", setupMap);
+    })();
+  </script>
+</head>
+<body>
+  <h1>The Annexstad Dairy Farm</h1>
+  <ul>
+    <li><a href="http://mnfarmfamilies.cfans.umn.edu/families-by-year/2014-farm-families/nicollet-county/">Annexstads are 2014 Nicollet County farm family of the year.</a>
+    <li><a href="http://www.thelandonline.com/news/dairy-tour-highlights-milking-animal-health/article_2bd1fdaa-6799-11e4-b10e-137d26b91ca2.html">Dairy tour highlights milking, animal health</a>
+    <li><a href="http://dairystar.com/main.asp?SectionID=1&SubSectionID=1&ArticleID=8848">Cow comfort, forage quality excels herd at Annexstad Dairy Farms</a>
+  </ul>
+  <div id="map"></div>
+  <img src="/img/michael_and_cow.jpg" alt="Michael Annexstad standing next to a red and white cow. The cow&rsquo;s rear end is facing towards the camera.">
+</body>
+</html>
